@@ -61,8 +61,8 @@ class SiteController extends Controller
 
         if (!empty($model)) {
 //            проверка ответа
-            if(!empty($post = Yii::$app->request->post())){
-                Challenge::checkAnswer($post,$model);
+            if (!empty($post = Yii::$app->request->post())) {
+                Challenge::checkAnswer($post, $model);
             }
 //        условие по времени
             $timestamp = $model->time;
@@ -80,11 +80,13 @@ class SiteController extends Controller
             $formatter->timeZone = 'GMT+5';
             $clearStartTime = $formatter->asTime($timestamp, 'php: H:i:s');
             $formatter->timeZone = 'GMT0';
+            var_dump($nextActionTime, $levelTime, $timestamp, $currentTime);
             return $this->render('index', [
                 'model' => $model,
                 'startTime' => $clearStartTime,
                 'levelTime' => $formatter->asTime($levelTime, 'php: H:i:s'),
-                'nextActionTime' => $formatter->asTime($nextActionTime, 'php: i:s')
+                'nextActionTime' => $formatter->asTime($nextActionTime, 'php: i:s'),
+                'nextActionSeconds' => $formatter->asText($nextActionTime),
             ]);
         } else {
             return $this->render('about', []);
