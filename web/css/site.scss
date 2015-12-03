@@ -4,14 +4,20 @@ body {
   background-color: #141414;
   color: white;
   font-size: 12px;
+  min-width: 700px;
 }
 
 img {
-  max-width: 300px;
+  max-width: 700-30px;
+  display: block;
 }
 
 .timer--seconds {
   display: none;
+}
+
+.form-group {
+  margin-bottom: 0;
 }
 
 .timer--countdown {
@@ -45,9 +51,8 @@ img {
   margin: 15px 0;
 }
 
-.hint__header {
+.hint__header, .log__header, .answer__header {
   @extend .challenge__header;
-
 }
 
 .hint__text {
@@ -65,8 +70,27 @@ img {
 .form--answer {
   @extend .challenge__text;
   color: #000;
-  & *{
+  & * {
     display: inline-block;
+  }
+}
+
+.table {
+  background-color: black;
+  & td, & th{
+    background-color: black;
+    font-size: 90%;
+    padding: 0!important;
+    text-align: center;
+    color: whitesmoke!important;
+  }
+  & th {
+    font-weight: 700;
+  }
+  & a{
+    text-decoration: none;
+    font-weight: 700;
+    color: whitesmoke;
   }
 }
 
@@ -75,8 +99,9 @@ img {
 }
 
 .wrapper {
-  width: 700px;
+  max-width: 700px;
   margin-left: 15px;
+
 }
 
 .wrap {
@@ -113,16 +138,16 @@ img {
 }
 
 /* add sorting icons to gridview sort links */
-a.asc:after, a.desc:after {
-  position: relative;
-  top: 1px;
-  display: inline-block;
-  font-family: 'Glyphicons Halflings';
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  padding-left: 5px;
-}
+//a.asc:after, a.desc:after {
+//  position: relative;
+//  top: 1px;
+//  display: inline-block;
+//  font-family: 'Glyphicons Halflings';
+//  font-style: normal;
+//  font-weight: normal;
+//  line-height: 1;
+//  padding-left: 5px;
+//}
 
 a.asc:after {
   content: /*"\e113"*/ "\e151";

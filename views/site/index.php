@@ -40,13 +40,13 @@ $model->answer = '';
         </div>
         <?php ActiveForm::end(); ?>
     </div>
-    Ответ:
+    <div class="answer__header">Ответ:</div>
     <div>
         <? if ($model->is_answer_activate == 1): ?>
             <img src="<?= $model->map_url ?>">
         <? endif; ?>
     </div>
-    Лог игры:
+    <div class="log__header">Лог игры:</div>
     <?= GridView::widget([
         'dataProvider' => new ActiveDataProvider([
             'query' => \app\models\Log::find()->where(['challenge_id' => $model->id])->orderBy('id DESC'),
